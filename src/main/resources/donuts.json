@@ -1,0 +1,8 @@
+{
+  "id": "0001",
+  "name": "Cake",
+  "toppings":
+  [
+    { "id": "5001", "type": "Glazed" }
+  ]
+}
