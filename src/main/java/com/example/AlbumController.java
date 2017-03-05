@@ -2,8 +2,6 @@ package com.example;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/albums")
 public class AlbumController {
