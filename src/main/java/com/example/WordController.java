@@ -13,7 +13,7 @@ public class WordController {
     WordCounter wordcount;
 
     public WordController(WordCounter wordcount) {
-        this.wordcount = wordcount;
+       
     }
 
     @PostMapping("/count")
