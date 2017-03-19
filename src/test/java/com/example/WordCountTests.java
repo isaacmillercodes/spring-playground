@@ -5,10 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-//import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.HashMap;
 
@@ -19,19 +17,21 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(WordController.class)
-@SpringBootTest
 public class WordCountTests {
 
     @MockBean
     WordCounterConfig config;
 
+    @MockBean
+    WordCounter wordCounter;
+
     @Autowired
     WordController controller;
 
-//    @Before
-//    public void setup() {
-//        when(config.wordCounter()).thenReturn(new WordCounter());
-//    }
+    @Before
+    public void setup() {
+        when(config.wordCounter()).thenReturn(new WordCounter());
+    }
 
     @Test
     public void wordCounterUnitTest() {
@@ -47,6 +47,7 @@ public class WordCountTests {
 
     @Test
     public void wordControllerAutowireTest() {
+        controller.wordcount = new WordCounter();
         HashMap testMap = new HashMap<String, Integer>();
         testMap.put("space", 1);
         testMap.put("jam", 2);
